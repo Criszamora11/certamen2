@@ -1,0 +1,26 @@
+<!-- myapp/templates/myapp/index.html -->
+{% extends 'myapp/nav.html' %}
+{%load static %}
+{%block content %}
+
+<body>
+
+    <!-- Main Content -->
+    <div class="container-fluid main-content">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="texto1">Portal de Iniciativas Estudiantiles</h1>
+                <h3 class="texto2">Universidad Santa María - Sede Viña del Mar</h3>
+                <a href="{% url 'lista_proyectos' %}" class="btn btn-warning mt-3">Ver Iniciativas</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+{%endblock%}

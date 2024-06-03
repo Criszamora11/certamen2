@@ -1,0 +1,49 @@
+<!-- templates/proyectos_presentados.html -->
+{% extends "myapp/nav.html" %}
+
+
+
+{% block title %}
+Proyectos Presentados
+{% endblock %}
+
+{% block content %}
+<h6 class="text-center colorporta">PORTAFOLIO</h6>
+<h2 class="text-center">Proyectos Presentados</h2>
+<div class="d-flex justify-content-end mb-3">
+    <div class="dropdown">
+        <div class="d-flex justify-content-end mb-3">
+            <a class="btn btn-primary mr-2" href="{% url 'lista_proyectos' %}">Todos los Temas</a>
+            <a class="btn btn-primary mr-2" href="{% url 'lista_proyectos' %}?tema=Software">Software</a>
+            <a class="btn btn-primary mr-2" href="{% url 'lista_proyectos' %}?tema=Matemática">Matemática</a>
+            <a class="btn btn-primary" href="{% url 'lista_proyectos' %}?tema=Física">Física</a>
+            <!-- Agrega más botones según sea necesario -->
+        </div> 
+    </div>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nombre Proyecto</th>
+            <th>Estudiante</th>
+            <th>Tema</th>
+            <th>Profesor</th>
+            <th>Patrocinio</th> <!-- Nueva columna -->
+        
+        </tr>
+    </thead>
+    <tbody>
+        {% for proyecto in proyectos %}
+            {% if proyecto.Patrocinio == 'Si' %}
+            <tr>
+                <td>{{ proyecto.Nombre_Proyecto }}</td>
+                <td>{{ proyecto.Estudiante }}</td>
+                <td>{{ proyecto.Tema }}</td>
+                <td>{{ proyecto.Profesor }}</td>
+                <td>{{ proyecto.Patrocinio }}</td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
